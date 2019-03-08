@@ -1,0 +1,10 @@
+name: rstudio-shiny-contest
+title:
+username:
+account: gitdiscoverer
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 773897
+bundleId: 1925020
+url: https://gitdiscoverer.shinyapps.io/rstudio-shiny-contest/
+when: 1552046395.87091

@@ -28,7 +28,7 @@ In order to use OAuth option, you need **Client ID** and **Client Secret**. If y
 
 On this page, you should be able to see Client key and Client Secret. Once you have the keys put them in **global.R** of this Shiny App and make sure you have active internet connection and you're all set to run **GitDiscoverer**.
 
->> [More Detailed Explanation to Generate Keys at this Link](https://blog.exploratory.io/extract-data-from-private-github-repository-with-rest-api-db804fa43d84)
+>> [More Detailed Explanation to Generte Keys at this Link](https://blog.exploratory.io/extract-data-from-private-github-repository-with-rest-api-db804fa43d84)
 
 
 ### **Reproducibility at RstudioCloud Server**
