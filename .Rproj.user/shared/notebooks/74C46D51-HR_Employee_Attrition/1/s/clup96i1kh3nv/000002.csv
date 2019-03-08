@@ -1,5 +1,0 @@
-"0","```r
-
-train_readable_tbl %>%
-  recommend_strategies(4)
-```"

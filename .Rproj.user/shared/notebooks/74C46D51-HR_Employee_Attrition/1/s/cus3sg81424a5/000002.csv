@@ -1,9 +1,0 @@
-"0","```r
-
-# Numeric Data Type
-
-train_raw_tbl %>% 
-  select_if(is.numeric) %>% 
-  map(~ unique(.) %>% length())
-
-```"

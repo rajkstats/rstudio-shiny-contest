@@ -1,9 +1,0 @@
-"0","```r
-
-factor_names <-  c(\"JobLevel\", \"StockOptionLevel\")
-
-recipe_obj <- recipe(Attrition ~ ., data = train_readable_tbl) %>%
-  step_zv(all_predictors()) %>%
-  step_YeoJohnson(skewed_feature_names) %>%
-  step_num2factor(factor_names)
-```"

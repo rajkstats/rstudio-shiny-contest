@@ -1,6 +1,0 @@
-"0","```r
-
-dept_job_role_tbl <- train_raw_tbl %>% select(EmployeeNumber,Department,JobRole,Attrition)
-
-dept_job_role_tbl
-```"

@@ -1,8 +1,0 @@
-"0","```r
-
-prepared_recipe %>%
-  bake(new_data = train_readable_tbl) %>%
-  select_if(is.numeric) %>%
-  plot_hist_facet()
-
-```"

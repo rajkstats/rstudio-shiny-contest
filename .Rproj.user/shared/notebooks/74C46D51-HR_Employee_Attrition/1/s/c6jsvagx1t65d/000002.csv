@@ -1,5 +1,0 @@
-"0","```r
-
-h2o.auc(stacked_ensemble_h2o, train = TRUE, valid =  TRUE, xval = TRUE)
-
-```"

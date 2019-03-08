@@ -1,4 +1,0 @@
-"0","```r
-train_corr_tbl <- bake(recipe_obj, new_data = train_readable_tbl)
-train_corr_tbl %>% glimpse()
-```"

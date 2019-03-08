@@ -1,6 +1,0 @@
-"0","```r
-
-train_tbl %>% 
-  get_cor(Attrition_Yes, fct_reorder = T, fct_rev = T )
-
-```"

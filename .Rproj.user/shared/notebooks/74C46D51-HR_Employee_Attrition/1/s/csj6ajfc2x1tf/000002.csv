@@ -1,6 +1,0 @@
-"0","```r
-train_raw_tbl %>%
-  select(-zv) %>%
-  select(Attrition, everything()) %>%
-  plot_hist_facet(bins = 10, ncol = 5, fct_rev = F)
-```"

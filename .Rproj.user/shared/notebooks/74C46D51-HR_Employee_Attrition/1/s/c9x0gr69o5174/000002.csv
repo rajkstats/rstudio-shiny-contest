@@ -1,7 +1,0 @@
-"0","```r
-
-
-train_raw_tbl %>% 
-  select(Attrition, Age, Gender, MaritalStatus, NumCompaniesWorked, Over18, DistanceFromHome) %>% 
-  plot_ggpairs(color = Attrition)
-```"

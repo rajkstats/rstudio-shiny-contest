@@ -1,5 +1,0 @@
-"0","```r
-path_train <- \"00_Data/telco_train.xlsx\"
-train_raw_tbl<-read_excel(path_train,sheet = 1)
-colnames(train_raw_tbl)
-```"

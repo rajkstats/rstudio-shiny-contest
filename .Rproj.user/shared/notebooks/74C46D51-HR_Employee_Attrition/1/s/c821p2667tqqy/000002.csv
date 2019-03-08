@@ -1,6 +1,0 @@
-"0","```r
-
-automl_models_h2o@leaderboard %>%
-  plot_h2o_leaderboard(order_by = \"auc\")
-
-```"

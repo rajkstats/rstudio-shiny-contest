@@ -1,7 +1,0 @@
-"0","```r
-
-train_raw_tbl %>% 
-  select(Attrition, contains(\"years\")) %>% 
-  plot_ggpairs(color = Attrition)
-
-```"

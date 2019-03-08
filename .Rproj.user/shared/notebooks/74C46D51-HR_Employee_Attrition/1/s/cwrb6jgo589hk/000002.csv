@@ -1,4 +1,0 @@
-"0","```r
-
-h2o.confusionMatrix(stacked_ensemble_h2o)
-```"

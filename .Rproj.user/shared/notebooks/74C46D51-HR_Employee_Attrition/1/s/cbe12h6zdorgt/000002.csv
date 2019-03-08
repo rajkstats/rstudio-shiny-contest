@@ -1,7 +1,0 @@
-"0","```r
-
-rates_by_threshold_tbl %>%
-  select(threshold, f1, tnr:tpr) %>%
-  filter( f1 == max(f1)) %>%
-  slice(1)  
-```"

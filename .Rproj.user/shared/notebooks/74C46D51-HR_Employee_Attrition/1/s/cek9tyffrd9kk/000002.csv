@@ -1,6 +1,0 @@
-"0","```r
-
-gain_lift_tbl <- performance_h2o %>%
-   h2o.gainsLift() %>%
-   as.tibble()
-```"

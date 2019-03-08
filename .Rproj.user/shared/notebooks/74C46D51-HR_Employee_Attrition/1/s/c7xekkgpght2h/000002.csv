@@ -1,7 +1,0 @@
-"0","```r
-performance_h2o %>%
-#h2o.metric(): Returns the classifier performance
-  h2o.metric() %>%
-  as.tibble() %>%
-  glimpse()
-```"

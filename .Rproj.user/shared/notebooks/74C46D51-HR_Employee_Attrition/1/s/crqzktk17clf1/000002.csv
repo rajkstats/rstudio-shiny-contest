@@ -1,6 +1,0 @@
-"0","```r
-
-train_raw_tbl %>% 
-  select_if(is.character) %>% 
-  map(~ table(.) %>% prop.table())
-```"

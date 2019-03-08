@@ -1,6 +1,0 @@
-"0","```r
-explanation %>%
-  filter(case %in% 1:6) %>%
-  plot_features_tq(ncol = 2)
-
-```"

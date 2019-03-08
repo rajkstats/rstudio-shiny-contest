@@ -1,6 +1,0 @@
-"0","```r
-
-test_tbl %>%
-  calculate_savings_by_threshold_2(automl_leader, avg_overtime_pct = 0.10,
-                                   net_revenue_per_employee = 250000)
-```"

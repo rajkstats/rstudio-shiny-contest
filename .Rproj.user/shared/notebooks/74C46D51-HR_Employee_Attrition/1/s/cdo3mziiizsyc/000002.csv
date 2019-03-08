@@ -1,5 +1,0 @@
-"0","```r
-train_tbl %>% 
-  select(Attrition_Yes, contains(\"income\"), contains(\"rate\"), contains(\"salary\"), contains(\"stock\") ) %>% 
-plot_cor(target = Attrition_Yes, fct_reorder = T, fct_rev = F)
-```"
