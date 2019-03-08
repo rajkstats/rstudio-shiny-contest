@@ -1,0 +1,8 @@
+"0","```r
+train_raw_tbl %>% 
+  select_if(is.numeric) %>% 
+  map_df(~ unique(.) %>% length()) %>%
+  gather() %>% 
+  arrange(value) %>%
+  filter(value <= 10)
+```"

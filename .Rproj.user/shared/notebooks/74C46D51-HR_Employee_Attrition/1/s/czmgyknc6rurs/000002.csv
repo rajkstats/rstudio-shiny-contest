@@ -1,0 +1,17 @@
+"0","```r
+
+explanation <- test_tbl %>%
+    slice(1:20) %>%
+    select(-Attrition) %>%
+    lime::explain(
+        explainer = explainer,
+        n_labels   = 1,
+        n_features = 8,
+        n_permutations = 5000,
+        kernel_width   = 1
+    )
+
+explanation %>%
+    as.tibble()
+
+```"

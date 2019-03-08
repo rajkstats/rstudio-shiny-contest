@@ -1,0 +1,11 @@
+"0","```r
+
+net_revenue_per_employee <- 250000
+avg_overtime_pct <- seq(0.05, 0.30, by = 0.05)
+stock_option_cost <- seq(5000, 25000, by = 5000)
+
+max_savings_rates_tbl_3 <- rates_by_threshold_optimized_tbl_3 %>%
+filter(savings == max(savings))
+
+max_savings_rates_tbl_3
+```"

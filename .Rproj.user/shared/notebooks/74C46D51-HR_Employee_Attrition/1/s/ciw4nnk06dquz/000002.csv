@@ -1,0 +1,14 @@
+"0","```r
+
+
+explainer <- train_tbl %>%
+  select(-Attrition) %>%
+  lime(
+    model           =  automl_leader,
+    bin_continuous  =  TRUE,
+    n_bins          =  4, 
+    quantile_bins   = TRUE
+    )
+
+explainer
+```"

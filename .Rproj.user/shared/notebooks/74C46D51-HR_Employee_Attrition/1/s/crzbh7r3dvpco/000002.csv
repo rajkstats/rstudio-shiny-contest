@@ -1,0 +1,5 @@
+"0","```r
+
+test_tbl <- bake(recipe_obj, new_data = test_readable_tbl)
+test_tbl %>% glimpse()
+```"

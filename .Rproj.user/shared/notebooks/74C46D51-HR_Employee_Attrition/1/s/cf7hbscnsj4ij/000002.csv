@@ -1,0 +1,6 @@
+"0","```r
+# Retreives area under curve (AUC) for a classifier. If passing an h2O Model, can use the xval argument
+# to retreive the average cross validation AUC
+h2o.auc(performance_h2o)
+
+```"

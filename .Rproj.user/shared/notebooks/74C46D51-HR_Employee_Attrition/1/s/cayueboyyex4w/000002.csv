@@ -1,0 +1,18 @@
+"0","```r
+
+# After expanding  
+
+dummied_recipe_obj  <- recipe(Attrition ~ ., data = train_readable_tbl) %>%
+  step_zv(all_predictors()) %>%
+  step_YeoJohnson(skewed_feature_names) %>%
+  step_num2factor(factor_names) %>%
+  step_center(all_numeric()) %>%
+  step_scale(all_numeric()) %>%
+  step_dummy(all_nominal(), one_hot = TRUE)
+
+dummied_recipe_obj %>%
+  prep() %>%
+  bake(new_data = train_readable_tbl) %>%
+  select(contains(\"JobRole\")) %>%
+  plot_hist_facet(ncol = 3)
+```"

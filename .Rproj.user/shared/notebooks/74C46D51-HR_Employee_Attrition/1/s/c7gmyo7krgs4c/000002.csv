@@ -1,0 +1,6 @@
+"0","```r
+# Character Data Type
+train_raw_tbl %>% 
+  select_if(is.character) %>% 
+  glimpse()
+```"

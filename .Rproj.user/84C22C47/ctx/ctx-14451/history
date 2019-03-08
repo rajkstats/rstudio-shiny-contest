@@ -1,0 +1,512 @@
+# Get OAuth credentials
+github_token <- oauth2.0_token(oauth_endpoints("github"), app)
+gtoken <- config(token = github_token)
+language <- "R"
+since <- "weekly"
+# Trending Repos
+# Returns author, name, description, url, stars, forks, currentPeriodStars
+req <- GET(paste0("https://github-trending-api.now.sh/repositories?language=",language,"&since=",since), gtoken)
+print(paste0("https://github-trending-api.now.sh/repositories?language=",language,"&since=",since))
+json1 <- content(req)
+trending_repos<- jsonlite::fromJSON(jsonlite::toJSON(json1))
+trending_repos<- trending_repos %>% select(1,2,4,3,4,7,8,9)
+trending_repos$name <- paste0('<a href="',trending_repos$url,'">',trending_repos$name ,"</a>")
+#trending_repos$url <- paste0('<a href="',trending_repos$url,'">',trending_repos$url ,"</a>")
+author <- unlist(trending_repos$author)
+source('00_Scripts/github_user_info.R')
+author_info<-github_user_info(author,gtoken,1)
+trending_repos$author_avatar <- author_info$Avatar_Url
+trending_repos$author<- paste0('<img src="',trending_repos$author_avatar,'" height="52"></img>')
+trending_repos$stars <- as.numeric(trending_repos$stars)
+trending_repos$forks <- as.numeric(trending_repos$forks)
+trending_repos <- trending_repos %>% select(1,2,3,5,6,7)
+colnames(trending_repos) <- c("Author","Repository","Description","Stars","Forks","CurrentPeriodStars")
+runApp()
+# Trending Repos
+# Returns author, name, description, url, stars, forks, currentPeriodStars
+req <- GET(paste0("https://github-trending-api.now.sh/repositories?language=",language,"&since=",since), gtoken)
+print(paste0("https://github-trending-api.now.sh/repositories?language=",language,"&since=",since))
+json1 <- content(req)
+language<-"R"
+since <- "weekly"
+# Trending Repos
+# Returns author, name, description, url, stars, forks, currentPeriodStars
+req <- GET(paste0("https://github-trending-api.now.sh/repositories?language=",language,"&since=",since), gtoken)
+print(paste0("https://github-trending-api.now.sh/repositories?language=",language,"&since=",since))
+json1 <- content(req)
+trending_repos<- jsonlite::fromJSON(jsonlite::toJSON(json1))
+trending_repos<- trending_repos %>% select(1,2,4,3,4,7,8,9)
+trending_repos$name <- paste0('<a href="',trending_repos$url,'">',trending_repos$name ,"</a>")
+#trending_repos$url <- paste0('<a href="',trending_repos$url,'">',trending_repos$url ,"</a>")
+author <- unlist(trending_repos$author)
+source('00_Scripts/github_user_info.R')
+author_info<-github_user_info(author,gtoken,1)
+trending_repos$author_avatar <- author_info$Avatar_Url
+trending_repos$author<- paste0('<img src="',trending_repos$author_avatar,'" height="52"></img>')
+trending_repos$stars <- as.numeric(trending_repos$stars)
+trending_repos$forks <- as.numeric(trending_repos$forks)
+trending_repos <- trending_repos %>% select(1,2,3,5,6,7)
+colnames(trending_repos) <- c("Author","Repository","Description","Stars","Forks","CurrentPeriodStars")
+trending_repos <- formattable(trending_repos, list(
+area(col = c(trending_repos$Stars,trending_repos$Forks,trending_repos$CurrentPeriodStars)) ~ normalize_bar("pink", 0.2)
+))
+class(trending_repos)
+View(trending_repos)
+trending_repos[,4:5] <- sapply(trending_repos[,4:5], FUN=function(x) prettyNum(x, big.mark=","))
+runApp()
+runApp()
+runApp()
+runApp()
+?textInput
+runApp()
+shiny::runApp()
+runApp()
+shiny::runApp()
+?img
+?img()
+runApp()
+runApp()
+runApp()
+getwd()
+runApp()
+runApp()
+runApp()
+deployApp()
+library(formattable)
+runApp()
+shiny::runApp()
+runApp()
+runApp()
+runApp()
+shiny::runApp()
+deployApp()
+# User Info ----
+# Use API
+req <- GET(paste0("https://api.github.com/users/", i), gtoken)
+i<-'hadley'
+# User Info ----
+# Use API
+req <- GET(paste0("https://api.github.com/users/", i), gtoken)
+# Extract content from a request
+json1 <- content(req)
+info <- jsonlite::fromJSON(jsonlite::toJSON(json1))
+info <- info[c('name','company', 'blog', 'location','public_repos',
+'followers', 'following','html_url','avatar_url')]
+rm(list=ls())
+library(jsonlite)
+library(httpuv)
+library(httr)
+library(tidyverse)
+library(plyr)
+library(shiny)
+library(shinythemes)
+library(devtools)
+library(data.table)
+library(shinyjs)
+library(shinyWidgets)
+library(rsconnect)
+library(formattable)
+options(warn=-1)
+# Can be github, linkedin etc depending on application
+oauth_endpoints("github")
+# Change based on what you
+app <- oauth_app(appname = "Rshinycontest",
+key = "4938920f10b0889d440f",
+secret = "0fda89a95c741ce903fcacee66d3c09d2730ee15")
+# Get OAuth credentials
+github_token <- oauth2.0_token(oauth_endpoints("github"), app)
+gtoken <- config(token = github_token)
+# User Info ----
+# Use API
+req <- GET(paste0("https://api.github.com/users/", i), gtoken)
+# Extract content from a request
+json1 <- content(req)
+i<-"hadley"
+# User Info ----
+# Use API
+req <- GET(paste0("https://api.github.com/users/", i), gtoken)
+# Extract content from a request
+json1 <- content(req)
+info <- jsonlite::fromJSON(jsonlite::toJSON(json1))
+info <- info[c('name','company', 'blog', 'location','public_repos',
+'followers', 'following','html_url','avatar_url')]
+info <- as_tibble(cbind(Attributes = names(info), t(info)))
+info$name <- paste0('<a href="',info$html_url,'">',info$name ,"</a>")
+info$blog <- paste0('<a href="',info$blog,'">',info$blog ,"</a>")
+colnames(info)
+info <- info[c(2:10)]
+info <- lapply(info, gsub, pattern = "list()", replacement = "", fixed = TRUE)
+runApp()
+user_info <- ldply(info_list, data.frame)
+rm(list=ls())
+library(jsonlite)
+library(httpuv)
+library(httr)
+library(tidyverse)
+library(plyr)
+library(shiny)
+library(shinythemes)
+library(devtools)
+library(data.table)
+library(shinyjs)
+library(shinyWidgets)
+library(rsconnect)
+library(formattable)
+options(warn=-1)
+# Can be github, linkedin etc depending on application
+oauth_endpoints("github")
+# Change based on what you
+app <- oauth_app(appname = "Rshinycontest",
+key = "4938920f10b0889d440f",
+secret = "0fda89a95c741ce903fcacee66d3c09d2730ee15")
+# Get OAuth credentials
+github_token <- oauth2.0_token(oauth_endpoints("github"), app)
+gtoken <- config(token = github_token)
+i<-"hadley"
+# Trending Repos
+# Returns author, name, description, url, stars, forks, currentPeriodStars
+req <- GET(paste0("https://github-trending-api.now.sh/repositories?language=",language,"&since=",since), gtoken)
+language<-"R"
+info_list <- list()
+# User Info ----
+# Use API
+req <- GET(paste0("https://api.github.com/users/", i), gtoken)
+# Extract content from a request
+json1 <- content(req)
+info <- jsonlite::fromJSON(jsonlite::toJSON(json1))
+info <- info[c('name','company', 'blog', 'location','public_repos',
+'followers', 'following','html_url','avatar_url')]
+info <- as_tibble(cbind(Attributes = names(info), t(info)))
+info$name <- paste0('<a href="',info$html_url,'">',info$name ,"</a>")
+info$blog <- paste0('<a href="',info$blog,'">',info$blog ,"</a>")
+info <- info[c(2:10)]
+info <- lapply(info, gsub, pattern = "list()", replacement = "", fixed = TRUE)
+info_list[[j]] <- info
+j <- 1
+info_list[[j]] <- info
+j <- j+1
+user_info <- ldply(info_list, data.frame)
+View(user_info)
+colnames(user_info) <- c('Name' ,'Company', 'Blog', 'Location','Public Repositories',
+'Followers', 'Following','html_url','Avatar_Url')
+colnames(user_info)
+runApp()
+user_info <- github_user_info(input$username,gtoken,0)
+input$username <- "hadley"
+user_info <- github_user_info("hadley",gtoken,0)
+user_info$Avatar_Url<- paste0('<img src="',user_info$Avatar_Url,'" height="52"></img>')
+colnames(user_info)
+runApp()
+deployApp()
+runApp()
+runApp()
+shiny::runApp()
+runApp()
+?chooseSliderSkin
+runApp()
+runApp()
+?setBackgroundColor
+runApp()
+runApp()
+runApp()
+install.packages("leaflet")
+install.packages("dygraphs")
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+?mainPanel
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+getwd()
+runApp()
+?uiOutput
+runApp()
+deployApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+?tabPanel
+runApp()
+?column
+runApp()
+runApp()
+library(jsonlite)
+library(httpuv)
+library(httr)
+library(tidyverse)
+library(plyr)
+library(shiny)
+library(shinythemes)
+library(devtools)
+library(data.table)
+library(shinyjs)
+library(shinyWidgets)
+library(rsconnect)
+library(formattable)
+runApp()
+deployApp()
+deployApp()
+runApp()
+runApp()
+runApp()
+deployApp()
+runApp()
+runApp()
+?updateTextInput
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp()
+?observe
+runApp()
+runApp()
+getwd()
+runApp()
+runApp()
+runApp()
+runApp()
+runApp("", display.mode = "showcase")
+getwd()
+runApp("/Users/raj/rstudio-shiny-contest", display.mode = "showcase")
+runApp()
+shiny::runApp()
+runApp()
+runApp()
+runApp()
+?htmlOutput
+runApp()
+runApp()
+runApp()
+deployApp()
+runApp()
+runApp()
+deployApp()
+runApp()
+runApp()
+rm(list=ls())
+library(jsonlite)
+library(httpuv)
+library(httr)
+library(tidyverse)
+library(plyr)
+library(shiny)
+library(shinythemes)
+library(devtools)
+library(data.table)
+library(shinyjs)
+library(shinyWidgets)
+library(rsconnect)
+options(warn=-1)
+options(shiny.sanitize.errors = TRUE)
+# Can be github, linkedin etc depending on application
+oauth_endpoints("github")
+# Change based on what you
+app <- oauth_app(appname = "Rshinycontest",
+key = "4938920f10b0889d440f",
+secret = "0fda89a95c741ce903fcacee66d3c09d2730ee15")
+# Get OAuth credentials
+github_token <- oauth2.0_token(oauth_endpoints("github"), app)
+gtoken <- config(token = github_token)
+github_user_info("hadley",gtoken,0)
+github_user_info <- function(username, gtoken,d){
+if(username == "")
+username <- "hadley,hmason,hammer,johnmyleswhite,racheltho,jph00,mdancho84"
+else
+username <- username
+info_list <- list()
+j <- 1
+if(d==0)
+username<- unlist(strsplit(username, split=","))
+for(i in username){
+# User Info ----
+# Use API
+req <- GET(paste0("https://api.github.com/users/", i), gtoken)
+# Extract content from a request
+json1 <- content(req)
+info <- jsonlite::fromJSON(jsonlite::toJSON(json1))
+info <- info[c('name','company', 'blog', 'location','public_repos',
+'followers', 'following','html_url','avatar_url')]
+info <- as_tibble(cbind(Attributes = names(info), t(info)))
+info$name <- paste0('<a href="',info$html_url,'">',info$name ,"</a>")
+info$blog <- paste0('<a href="',info$blog,'">',info$blog ,"</a>")
+info <- info[c(2:10)]
+info <- lapply(info, gsub, pattern = "list()", replacement = "", fixed = TRUE)
+info_list[[j]] <- info
+j <- j+1
+}
+user_info <- ldply(info_list, data.frame)
+colnames(user_info) <- c('Name' ,'Company', 'Blog', 'Location','Public Repositories',
+'Followers', 'Following','html_url','Avatar_Url')
+user_info[,c(5,6,7)] <- sapply(user_info[,c(5,6,7)], FUN=function(x) prettyNum(x, big.mark=","))
+return(user_info)
+}
+github_user_info("hadley",gtoken,0)
+github_user_info("hadley,harsh",gtoken,0)
+github_user_info("hadley,harhs",gtoken,0)
+t <- github_user_info("hadley,harhs",gtoken,0)
+if(github_user_info("hadley,harhs",gtoken,0))
+)
+is.na(github_user_info("hadley,harhs",gtoken,0))
+if(github_user_info("hadley,harsh",gtoken,0))
+)
+github_user_info("hadley,harsh",gtoken,0)
+runApp()
+?textInput
+runApp()
+runApp()
+runApp()
+shiny::runApp()
+username<-"hadley"
+req <- GET(paste0("https://api.github.com/search/issues?q=author:",username,"%20","is:issue"), gtoken)
+json1 = content(req)
+user_issues <- jsonlite::fromJSON(jsonlite::toJSON(json1))
+View(user_issues)
+user_issues
+user_issues <- as_tibble(jsonlite::fromJSON(jsonlite::toJSON(json1)))
+View(user_issues)
+# Trending Developers
+# Returns username, name, url, avatar, repo
+req <- GET(paste0("https://github-trending-api.now.sh/developers?language=",language,"&since=",since), gtoken)
+language<-"R"
+# Trending Developers
+# Returns username, name, url, avatar, repo
+req <- GET(paste0("https://github-trending-api.now.sh/developers?language=",language,"&since=",since), gtoken)
+print(paste0("https://github-trending-api.now.sh/developers?language=",language,"&since=",since))
+since <- "weekly"
+# Trending Developers
+# Returns username, name, url, avatar, repo
+req <- GET(paste0("https://github-trending-api.now.sh/developers?language=",language,"&since=",since), gtoken)
+print(paste0("https://github-trending-api.now.sh/developers?language=",language,"&since=",since))
+json1 <- content(req)
+trending_dev <- jsonlite::fromJSON(jsonlite::toJSON(json1))
+View(trending_dev)
+# Trending Repos
+# Returns author, name, description, url, stars, forks, currentPeriodStars
+req <- GET(paste0("https://github-trending-api.now.sh/repositories?language=",language,"&since=",since), gtoken)
+print(paste0("https://github-trending-api.now.sh/repositories?language=",language,"&since=",since))
+json1 <- content(req)
+trending_repos<- jsonlite::fromJSON(jsonlite::toJSON(json1))
+View(trending_repos)
+trending_repos$builtBy[1]
+trending_repos$builtBy[1][1]
+trending_repos$builtBy[[1]]
+trending_repos$builtBy[1]
+trending_repos$builtBy[2]
+trending_repos$builtBy[2]['username']
+trending_repos$builtBy[2]
+class(trending_repos$builtBy[2])
+unlist(trending_repos$builtBy[2])
+trending_repos$builtBy[2]
+trending_repos$builtBy[2][1]
+trending_repos$builtBy[2]
+trending_repos$builtBy[2][[1]]
+trending_repos$builtBy[2][[1]][1]
+trending_repos$builtBy[2][[1]][1][1]
+x<- trending_repos$builtBy[2][[1]][1]
+x
+runApp()
+runApp()
+deployApp()
+runApp()
+runApp()
+deployApp()
+runApp()
+shiny::runApp()
+shiny::runApp()
+runApp()
+deployApp()
+deployApp()
+deployApp()
+source(file.path("ui", "tab-dsi.R"),  local = TRUE)$value
+source(file.path("ui", "tab-dsi.R"),  local = TRUE)$value
+runApp()
+runApp()
+runApp()
+shiny::runApp()
+source(file.path("text", "about.md"),   local = TRUE)$value
+source(file.path("text", "about.md"))
+file.path("text", "about.md")
+runApp()
+deployApp()
+runApp()
+shiny::runApp()
+?jsonlite
+?httpuv
+?httr
+? tidyverse
+?plyr
+? shiny
+?shinytheme
+? devtools
+runApp()
+runApp()
+?rsconnect
+?shinyWidgets
+?shinyjs
+runApp()
+runApp()
+runApp()
+runApp('~/rstudio-shiny-contest')
+runApp()
+runApp()
+# Clear Environment
+rm(list=ls())
+# Required packages
+library(jsonlite) # Required to convert between Json & R object
+library(httpuv)  # Allows R code to listen for and interact with HTTP and WebSocket clients
+library(httr)  # Required for Oauth 2.0
+library(tidyverse) # Set of pkgs for data science: dplyr, ggplot2, purrr, tidyr, ...
+library(plyr) # the split-apply-combine paradigm for R
+library(shiny) # Web Application Framework for R
+library(shinythemes) # Return the URL for a Shiny theme
+library(devtools) # Collection of package development tools.
+library(shinyjs) #Easily improve the user experience of your Shiny apps in seconds
+library(shinyWidgets) # Custom inputs widgets for Shiny.
+library(rsconnect) # Deployment Interface for R Markdown Documents and Shiny Applications
+options(warn=-1)
+# Sanitizing the error messages if any, across the app
+options(shiny.sanitize.errors = TRUE)
+# Can be github, linkedin etc depending on application
+oauth_endpoints("github")
+# Change based on what you
+app <- oauth_app(appname = "Rshinycontest",
+key = "4938920f10b0889d440f",
+secret = "0fda89a95c741ce903fcacee66d3c09d2730ee15")
+# Get OAuth credentials
+github_token <- oauth2.0_token(oauth_endpoints("github"), app)
+gtoken <- config(token = github_token)
+language<-"R"
+since <- "weekly"
+# Trending Developers
+# Returns username, name, url, avatar, repo
+req <- GET(paste0("https://github-trending-api.now.sh/developers?language=",language,"&since=",since), gtoken)
+print(paste0("https://github-trending-api.now.sh/developers?language=",language,"&since=",since))
+json1 <- content(req)
+trending_dev <- jsonlite::fromJSON(jsonlite::toJSON(json1))
+View(trending_dev)
+which(is.null(trending_dev$name))
+which(trending_dev$name=='NULL')
+pos <- which(trending_dev$name == 'NULL')
+pos
+trending_dev$name[pos]
+trending_dev$username[pos]
+runApp()
+deployApp()

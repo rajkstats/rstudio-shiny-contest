@@ -1,0 +1,20 @@
+"0","```r
+
+
+max_f1_tbl <- rates_by_threshold_tbl %>%
+  select(threshold, f1, tnr:tpr) %>%
+  filter(f1 == max(f1))
+
+max_f1_savings <- calculate_savings_by_threshold_3(
+  data = test_tbl,
+  h2o_model = automl_leader,
+  threshold = max_f1_tbl$threshold,
+  tnr = max_f1_tbl$tnr,
+  fnr =  max_f1_tbl$fnr,
+  fpr = max_f1_tbl$fpr,
+  tpr =  max_f1_tbl$tpr,
+  avg_overtime_pct = 0.10,
+  net_revenue_per_employee = 250000,
+  stock_option_cost = 5000
+)
+```"

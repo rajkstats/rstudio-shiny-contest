@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1551975364282.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1531558638",
+    "id" : "D1E0492D",
+    "lastKnownWriteTime" : 1551987455,
+    "last_content_update" : 1551987455397,
+    "path" : "~/rstudio-shiny-contest/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+        "cursorPosition" : "10,30",
+        "docOutlineVisible" : "1",
+        "scrollLine" : "1",
+        "source_window_id" : "",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

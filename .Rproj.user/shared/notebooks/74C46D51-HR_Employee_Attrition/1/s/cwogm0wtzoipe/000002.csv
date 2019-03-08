@@ -1,0 +1,7 @@
+"0","```r
+
+calculate_savings_by_threshold_3_preloaded(
+  avg_overtime_pct = 0.10,
+  net_revenue_per_employee = 250000,
+  stock_option_cost = 5000)  
+```"

@@ -1,0 +1,7 @@
+"0","```r
+
+automl_models_h2o@leaderboard %>%
+    plot_h2o_performance(newdata = test_tbl, order_by = \"auc\", 
+                         size = 1, max_models = 2)
+
+```"

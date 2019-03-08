@@ -1,0 +1,7 @@
+"0","```r
+dept_job_role_tbl %>% 
+  group_by(Attrition) %>% 
+  summarize(n=n()) %>% 
+  ungroup() %>% 
+  mutate(pct=n/sum(n))
+```"

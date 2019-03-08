@@ -1,0 +1,6 @@
+"0","```r
+train_tbl %>% 
+  select(Attrition_Yes, Age, contains(\"Gender\"), contains(\"MaritalStatus\"), 
+         NumCompaniesWorked, contains(\"Over18\"), DistanceFromHome) %>% 
+plot_cor(target = Attrition_Yes, fct_reorder = T, fct_rev = F)
+```"

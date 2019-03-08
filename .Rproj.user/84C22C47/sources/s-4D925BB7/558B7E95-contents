@@ -1,0 +1,5 @@
+formattable(df, list(
+
+    area(col = c(trending_repos$)) ~ normalize_bar("pink", 0.2)
+
+))

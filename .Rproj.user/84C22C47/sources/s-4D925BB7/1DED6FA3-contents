@@ -13,7 +13,6 @@ library(devtools) # Collection of package development tools.
 library(shinyjs) #Easily improve the user experience of your Shiny apps in seconds
 library(shinyWidgets) # Custom inputs widgets for Shiny.
 library(rsconnect) # Deployment Interface for R Markdown Documents and Shiny Applications
-library(data.table)
 options(warn=-1)
 # Sanitizing the error messages if any, across the app
 options(shiny.sanitize.errors = TRUE)
@@ -23,8 +22,8 @@ oauth_endpoints("github")
 
 # Change based on what you
 app <- oauth_app(appname = "Rshinycontest",
-                 key = "******************",
-                 secret = "*****************")
+                 key = "4938920f10b0889d440f",
+                 secret = "0fda89a95c741ce903fcacee66d3c09d2730ee15")
 
 # Get OAuth credentials
 github_token <- oauth2.0_token(oauth_endpoints("github"), app)

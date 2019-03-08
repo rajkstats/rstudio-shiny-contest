@@ -1,0 +1,5 @@
+"0","```r
+
+test_readable_tbl %>%
+  recommend_strategies(228)
+```"

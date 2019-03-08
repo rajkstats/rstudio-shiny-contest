@@ -1,0 +1,9 @@
+"0","```r
+
+ranked_predictions_tbl <- predictions_tbl %>%
+  bind_cols(test_tbl) %>%
+  select(predict:Yes, Attrition) %>%
+  arrange(desc(Yes))
+
+ranked_predictions_tbl
+```"

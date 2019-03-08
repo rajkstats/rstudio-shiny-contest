@@ -1,0 +1,6 @@
+"0","```r
+
+rates_by_threshold_optimized_tbl_3 %>%
+  filter(savings == max(savings))
+ 
+```"

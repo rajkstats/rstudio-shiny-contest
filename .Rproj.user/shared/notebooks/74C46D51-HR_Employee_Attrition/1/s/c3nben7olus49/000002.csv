@@ -1,0 +1,18 @@
+"0","```r
+
+h2o.init()
+
+# Splitting the data into train/valid/test and converting tibble to h2o data frame
+split_h2o <- h2o.splitFrame(as.h2o(train_tbl), ratios = c(0.85), seed = 1234)
+
+train_h2o <- split_h2o[[1]]
+valid_h2o <- split_h2o[[2]]
+test_h2o <- as.h2o(test_tbl)
+
+
+# Defining outcome / response variable
+y <- \"Attrition\"
+
+# Defining explanatory variables
+x <- setdiff(names(train_h2o),y)
+```"

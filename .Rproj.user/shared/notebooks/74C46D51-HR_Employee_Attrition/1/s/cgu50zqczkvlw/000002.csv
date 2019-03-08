@@ -1,0 +1,37 @@
+"0","```r
+
+max_savings_rates_tbl <- rates_by_threshold_optimized_tbl %>%
+  filter(savings == max(savings))
+
+max_savings_rates_tbl
+
+calculate_savings_by_threshold_2(
+  data = test_tbl,
+  h2o_model = automl_leader,
+  threshold = max_savings_rates_tbl$threshold,
+  tnr = max_savings_rates_tbl$tnr,
+  fnr =  max_savings_rates_tbl$fnr,
+  fpr = max_savings_rates_tbl$fpr,
+  tpr =  max_savings_rates_tbl$tpr
+)
+
+# Preloaded Function : Preloads the calibrated settings that optimize threshold &  maximize expected savings 
+
+calculate_savings_by_threshold_2_preloaded <- partial(
+  calculate_savings_by_threshold_2,
+  # Function Arguments
+  data = test_tbl,
+  h2o_model = automl_leader,
+  threshold = max_savings_rates_tbl$threshold,
+  tnr = max_savings_rates_tbl$tnr,
+  fnr =  max_savings_rates_tbl$fnr,
+  fpr = max_savings_rates_tbl$fpr,
+  tpr =  max_savings_rates_tbl$tpr
+  
+)
+
+
+calculate_savings_by_threshold_2_preloaded(
+  avg_overtime_pct = 0.10,
+  net_revenue_per_employee = 250000)
+```"

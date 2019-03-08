@@ -1,0 +1,14 @@
+"0","```r
+
+dept_job_role_tbl %>% 
+  
+  group_by(Department,JobRole, Attrition) %>% 
+  summarize(n=n()) %>% 
+  ungroup() %>% 
+  
+  group_by(Department,JobRole) %>%
+  mutate(pct=n/sum(n)) %>%
+  ungroup() %>%
+  
+  filter(Attrition %in% \"Yes\" )
+```"

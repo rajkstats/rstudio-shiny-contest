@@ -1,0 +1,14 @@
+"0","```r
+
+correlation_results_tbl %>%
+  ggplot(aes(Attrition_Yes, feature_base, color = relationship)) +
+  geom_point() + 
+  geom_label(aes(label = feature), vjust = -0.5) +
+  expand_limits(x = c(-0.3, 0.3), y = c(1,length_unique_groups + 1)) +
+  theme_tq() +
+  scale_color_tq() +
+  labs(
+    title = \"Correlation Analysis : Recommendation Strategy Development\",
+    subtitle =  \"Discretizing feature to help identify a strategy\"
+    )
+```"

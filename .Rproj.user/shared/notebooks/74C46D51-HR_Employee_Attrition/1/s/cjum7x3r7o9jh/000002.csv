@@ -1,0 +1,17 @@
+"0","```r
+
+max_f1_tbl <- rates_by_threshold_tbl %>%
+  select(threshold, f1, tnr:tpr) %>%
+  filter(f1 == max(f1)) %>%
+  slice(1)
+
+max_f1_tbl
+
+tnr <- max_f1_tbl$tnr
+fnr <- max_f1_tbl$fnr
+fpr <- max_f1_tbl$fpr
+tpr <- max_f1_tbl$tpr
+
+threshold <- max_f1_tbl$threshold
+threshold 
+```"

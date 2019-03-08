@@ -1,0 +1,21 @@
+"0","```r
+
+sensitivity_tbl_3 <- list(
+  avg_overtime_pct  = seq(0.05, 0.30, by = 0.05),
+  net_revenue_per_employee = 250000,
+  stock_option_cost = seq(5000, 25000, by = 5000)
+) %>%
+  cross_df() %>%
+  mutate(
+    savings = pmap_dbl(
+      .l = list(
+        avg_overtime_pct = avg_overtime_pct,
+        net_revenue_per_employee = net_revenue_per_employee,
+        stock_option_cost = stock_option_cost
+      ),
+      .f = calculate_savings_by_threshold_3_preloaded
+    )
+  )
+
+sensitivity_tbl_3
+```"

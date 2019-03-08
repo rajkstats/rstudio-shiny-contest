@@ -1,0 +1,6 @@
+"0","```r
+
+train_raw_tbl %>% 
+  select(Attrition, contains(\"satisfaction\"), contains(\"life\") ) %>% 
+  plot_ggpairs(color = Attrition)
+```"

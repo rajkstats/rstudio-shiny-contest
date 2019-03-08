@@ -1,0 +1,32 @@
+"0","```r
+
+plot_features_tq <- function(explanation, ncol) {
+  
+  data_transformed <- explanation %>%
+    as.tibble() %>%
+    mutate(
+      feature_desc = as_factor(feature_desc) %>%
+        fct_reorder(abs(feature_weight), .desc = FALSE),
+      key = ifelse( feature_weight > 0, \"Supports\", \"Contradicts\") %>%
+        fct_relevel(\"Supports\"),
+      case_text = glue(\"Case : {case}\"),
+      label_text = glue(\"Label : {label}\"),
+      prob_text  = glue(\"Probability: {round(label_prob, 2)}\"),
+      r2_text    = glue(\"Explanation Fit : {model_r2 %>% round(2)}\")
+    ) %>%
+    select(feature_desc, feature_weight, key, case_text:r2_text)
+  
+  
+  data_transformed %>%
+    ggplot(aes(feature_desc, feature_weight, fill = key)) +
+    geom_bar(stat = \"identity\") +
+    coord_flip() +
+    theme_tq() +
+    scale_fill_tq() +
+    labs(y = \"Weight\" , x = \"Feature\") +
+    facet_wrap(~ case_text + label_text + prob_text + r2_text, 
+               ncol = ncol , scales = \"free\")
+  
+} 
+
+```"

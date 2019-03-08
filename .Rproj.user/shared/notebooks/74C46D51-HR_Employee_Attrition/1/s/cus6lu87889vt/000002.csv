@@ -1,0 +1,6 @@
+"0","```r
+
+# Saving it as a tibble
+predictions_tbl <- predictions %>% as.tibble()
+predictions_tbl
+```"

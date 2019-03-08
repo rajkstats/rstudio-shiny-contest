@@ -1,0 +1,8 @@
+"0","```r
+
+# No OT Policy
+
+test_tbl %>%
+  calculate_savings_by_threshold(automl_leader, threshold = 0,
+                                 tnr = 0, fnr = 0, tpr = 1, fpr = 1)
+```"

@@ -1,0 +1,8 @@
+"0","```r
+
+performance_h2o <- automl_leader %>%
+  h2o.performance(newdata = as.h2o(test_tbl))
+
+performance_h2o %>%
+  h2o.confusionMatrix()
+```"

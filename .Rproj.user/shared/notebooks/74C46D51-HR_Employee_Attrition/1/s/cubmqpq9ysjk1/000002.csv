@@ -1,0 +1,10 @@
+"0","```r
+
+max_f1_savings <- calculate_savings_by_threshold(test_tbl, automl_leader, 
+                                                 threshold = max_f1_tbl$threshold,
+                                                 tnr = max_f1_tbl$tnr,
+                                                 fnr = max_f1_tbl$fnr,
+                                                 fpr = max_f1_tbl$fpr,
+                                                 tpr = max_f1_tbl$tpr)
+max_f1_savings
+```"

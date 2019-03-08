@@ -1,0 +1,19 @@
+
+# Pulling Pull Request by User ----
+req <- GET(paste0("https://api.github.com/search/issues?q=author:",username,"%20","is:issue","%20","is:open"), gtoken)
+json1 = content(req)
+
+if(json1$total_count >0){
+  user_pull_req <- jsonlite::fromJSON(jsonlite::toJSON(json1))
+  pulls <- data.table(user_pull_req$items$created_at,user_pull_req$item$title, user_pull_req$items$html_url, user_pull_req$item$state, user_pull_req$items$comments)
+  colnames(pulls) <- c("created_at","title", "url","state","comments")
+}else{
+  pulls <- 'No Pulls yet'
+}
+
+user_issues_on_github <- function(username, gtoken){
+  req <- GET(paste0("https://api.github.com/search/issues?q=author:",username,"%20","is:issue"), gtoken)
+  json1 = content(req)
+  user_issues <- as_tibble(jsonlite::fromJSON(jsonlite::toJSON(json1)))
+  
+}

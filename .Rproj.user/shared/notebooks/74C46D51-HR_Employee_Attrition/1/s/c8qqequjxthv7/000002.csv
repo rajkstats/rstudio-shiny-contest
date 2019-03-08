@@ -1,0 +1,38 @@
+"0","```r
+
+avg_overtime_pct <- 0.10
+
+
+ev_targeted_OT_tbl <- predictions_targeted_OT_tbl %>%
+  mutate(
+    attrition_cost = calculate_attrition_cost(
+      n = 1,
+      salary = MonthlyIncome * 12,
+      net_revenue_per_employee = 250000
+    )
+  ) %>%
+  mutate(
+    cost_of_policy_change = case_when(
+      OverTime_0 == \"Yes\" & OverTime_1 == \"No\" ~ attrition_cost * avg_overtime_pct,
+      TRUE ~ 0
+    )
+  ) %>%
+  mutate(
+      cb_tn = cost_of_policy_change,
+      cb_fp = cost_of_policy_change,
+      cb_tp = cost_of_policy_change + attrition_cost,
+      cb_fn = cost_of_policy_change + attrition_cost,
+      expected_attrition_cost = 
+        Yes * (tpr * cb_tp + fnr * cb_fn) +
+        No *  (tnr * cb_tn + fpr * cb_fp)
+  )
+
+
+ev_targeted_OT_tbl
+
+total_ev_targeted_OT_tbl <- ev_targeted_OT_tbl %>%
+  summarise(total_expected_attrition_cost_1 = sum(expected_attrition_cost))
+
+total_ev_targeted_OT_tbl
+
+```"

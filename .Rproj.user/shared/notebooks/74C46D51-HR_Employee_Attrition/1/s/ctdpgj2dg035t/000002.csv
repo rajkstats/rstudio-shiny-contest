@@ -1,0 +1,8 @@
+"0","```r
+# Assessing Performance 
+performance_h2o <- h2o.performance(stacked_ensemble_h2o, newdata =  as.h2o(test_tbl))
+
+# prints all the classifier metrics 
+performance_h2o@metrics
+
+```"

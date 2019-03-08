@@ -1,0 +1,9 @@
+"0","```r
+
+rates_by_threshold_tbl <- performance_h2o %>%
+  h2o.metric() %>%
+  as.tibble()
+
+rates_by_threshold_tbl %>%
+  glimpse()
+```"

@@ -1,0 +1,15 @@
+"0","```r
+
+skewed_feature_names <- train_readable_tbl %>%
+  select_if(is.numeric) %>%
+  map_df(skewness) %>%
+  gather(factor_key = TRUE) %>%
+  arrange(desc(value)) %>%
+  filter(value >= 0.8) %>%
+  pull(key) %>%
+  as.character()
+
+# Printing skewed feature names 
+skewed_feature_names
+
+```"
