@@ -1,5 +1,5 @@
 
-# [GitDiscoverer](https://gitdiscoverer.shinyapps.io/rstudio-shiny-contest/)
+# [GitDiscoverer](https://rajkstats.shinyapps.io/rstudio-shiny-contest/)
 
 ## Quick Overview
 
